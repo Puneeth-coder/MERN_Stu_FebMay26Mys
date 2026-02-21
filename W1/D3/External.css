@@ -1,0 +1,21 @@
+.box{
+      width: 100px;
+    height: 100px;
+      background-color: aliceblue;
+}
+.box2{
+    margin: 30px; /*All four sides same*/
+    margin: 10px 30px; /* top:10 right:30 */
+    margin: 10px 30px 20px 40px; /* top:10 right:30 */
+    margin: auto;/* */
+}
+body{
+    background-color: brown;
+}
+.border{
+    border: 2px solid black;
+    border-right:3px dotted red ;
+    border-bottom: 4px dashed blue ;
+    border-radius:20px  ;
+
+}
