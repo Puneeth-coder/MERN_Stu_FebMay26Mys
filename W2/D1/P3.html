@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Positioning elements: Static</title>
+    <style>
+        .box{
+            left: 500px;
+            top: 200px;
+            position:relative;
+            width: 300px;
+            height: 200px;
+            background-color: green;
+            border: 2px solid black;
+            border-radius: 10px;
+            margin-right: 5px 5px;
+            color: red;
+            text-align: center;
+        }
+        .door{
+            border: 2px solid black;
+            width: 50px;
+            height: 80px;
+            position: relative;
+            left: 620px;
+            top: 96px;
+            text-align: center;
+            background-color: blue;
+        }
+        .window1{
+            position: relative;
+            border: 2px solid black;
+            width: 50px;
+            left: 700px;
+            bottom: 1px;
+            height: 50px;
+            background-color: purple;
+        }
+        .top{
+            position: relative;
+            border: 5px solid black;
+            bottom: 167px;
+            width: 450px;
+            left: 425px;
+            height: 20px;
+            background-color:orange;
+        }
+        .window2,.transform-box:hover{
+            transform: scale(1.2) rotate(15deg) translateX(20px);
+        
+            position: relative;
+            height:50px;
+            width:50px;
+            border:2px solid black;
+            bottom: 80px;
+            left: 525px;
+            background-color: yellow;
+            
+        }
+        body{
+            background-color: cadetblue;
+        }
+        
+    </style>
+</head>
+<body>
+    <h2></h2>
+    <div class="box"></div>
+    <div class="door"></div>
+    <div class="window1"></div>
+    <div class="top"></div>
+    <div class="window2"></div>
+
+</body>
+</html>
