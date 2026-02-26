@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responcive design introduction: Media rules</title>
+    <style>
+        .notice{
+            padding: 20px;
+            text-align: center;
+            font-weight: bold;
+
+        }
+        .notice{
+            background-color: cornflowerblue;
+
+        }
+        @media screen and (max-width:768px) {
+            .notice{
+                background-color: burlywood;
+                color: aqua;
+                font-size: 14px;
+            }
+            
+        }
+         @media screen and (min-width:760px) and (max-width:1024px){
+            .notice{
+                background-color: palevioletred;
+                color: white;
+            }
+            
+        }
+        @media screen and (orientation: landscape) {
+            body{
+                background-color: bisque;
+
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="notice">Resize or rotate device
+       
+    </div>
+</body>
+</html>
