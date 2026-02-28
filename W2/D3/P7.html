@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards: Headers and Footers: equal height, hover</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <section class="grid grid-cols-1 md-grid grid-cols-2 lg-grid grid-cols-3 gap-6">
+        <article class="rounded-xl shadow-sm p-6 overflow:hidden flex-col transition duration-200 ease-out hover:translate-y-2 hover:shadow-lg">
+            <header class="border flex items-center ">
+                <h2>Basic version</h2>
+            </header>
+            <div class="p-6 space-y-2 flex-1">
+                <p class="text-xl ">RS-1000/-</p>
+            </div>
+            <footer class="border-t px-6 py-4 flex justify-end gap-3">
+                <button class="px-4 py-2 rounded bourder hover:bg-gray-500 trasition">Purchase</button>
+                <button class="px-4 py-2 rounded bourder hover:bg-gray-500 trasition">Details</button>
+            </footer>
+        </article>
+         <article class="rounded-xl shadow-sm p-6 overflow:hidden flex-col transition duration-200 ease-out hover:translate-y-2 hover:shadow-lg">
+            <header class="border flex items-center ">
+                <h2>Intermediate version</h2>
+                <p class="flex "> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem dicta odit quas tempora incidunt? Exercitationem, amet. Cum, temporibus! Ut nulla pariatur sit provident temporibus enim voluptas consequatur rem aut aperiam!Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum quisquam quibusdam molestias obcaecati dolor enim consectetur harum animi tempore totam laborum, nihil eaque repudiandae culpa facere nisi voluptatem ea? Veritatis?</p>
+            </header>
+            <div class="p-6 space-y-2 flex-1">
+                <p class="text-xl ">RS-1000/-</p>
+            </div>
+            <footer class="border-t px-6 py-4 flex justify-end gap-3">
+                <button class="px-4 py-2 rounded bourder hover:bg-gray-500 trasition">Purchase</button>
+                <button class="px-4 py-2 rounded bourder hover:bg-gray-500 trasition">Details</button>
+            </footer>
+        </article>
+    </section>
+</body>
+</html>
