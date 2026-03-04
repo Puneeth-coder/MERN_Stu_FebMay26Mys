@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#Home" class=" bg-yellow-200"><img src="iip.jpeg" height="75px" width="100px" class=" border-3"></a>
+            <ul class="bg-purple-200">
+                <li><a href="#home" class=" bg-white-400 rounded-sm border-2">Home</a></li>
+                <li><a href="#about" class="bg-whie-400 rounded-sm border-2">About</a></li>
+                <li><a href="#skills" class="bg-whie-400 rounded-sm border-2">Skills</a></li>
+                <li><a href="#projects" class="bg-whie-400 rounded-sm border-2">Projects</a></li>
+                <li><a href="#contact" class="bg-whie-400 rounded-sm border-2">Contacts</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- flexbox layout Hero section -->
+    <center><section id="home" class="bg-yellow-200 showd-2" class="bg-red-900">
+        <h1 class="bg-blue-200">Puneeth</h1>
+        <img src="pp.jpg" height="100px" width="200px" alt="My photo" class="bg-blue-200">
+        <p class="bg-blue-200">Software Developer <br>MERN Stack|DevOps</p>
+        <a href="#contact" class="bg-red-400">Contact me</a>
+    </section></center>
+   <!-- About sectio -->
+    <section id="About" class="bg-green-500">
+        <h2 class="text-center">About me</h2>
+        <article class="bg-green-500 rounded-sm">
+            <h3 class="text-center">Full Stack Developer</h3>
+            <p class="text-center">Experienced in web development and hosting,
+                specialized in finance-Domine projects.
+            </p>
+            <div class="tags" bg-pink-200 p-6>
+                <span class="text-center">Backend: Nodejs</span>
+                <span class="text-center">OB: Optimization</span>
+            </div>
+        </article>
+    </section>
+    <!-- Skills -->
+     <section id="skills" class="bg-red-500 rounded-sm text-center">
+        <h3>My Skills</h3>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h4>MERN Stack</h4>
+                <p>Reactjs, Nodejs, Expressjs, MongoDB</p>
+            </div>
+        </div>
+     </section>
+     <!-- Projects -->
+      <section class="bg-pink-500">
+        <h3 class="text-center">My Projects</h3>
+        <div class="text-center">
+            <div class="project-content">
+                <h4>gola</h4>
+                <p>Rapid way to book a cab hassle free</p>
+                <a href="https://www.gola.com" target="_blank" class="lp">view</a>
+            </div>
+        </div>
+        <table border="2" class="text-center bg-purple-500">
+            <thead><tr>
+                <th class="bg-yellow-200  text-center">Project</th>
+                <th colspan="2" class="bg-yellow-200  text-center">Technology</th>
+            </tr></thead>
+            <tbody>
+                <tr>
+                    <td class="bg-yellow-200 text-center">AWS for Hosting</td>
+                    <td class="bg-yellow-200 ">MERN</td>
+                    <td class="bg-yellow-200">Redis</td>
+                </tr>
+            </tbody>
+        </table>
+      </section>
+      <!-- Contact -->
+       <section id="contact">
+        <h3 class="text-center bg-blue-500 rounded-full">Contact Me</h3>
+        <form class="bg-blue-200">
+            <fieldset>
+                <legend>Contact form</legend>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" placeholder="name" required class="bg-green-500">
+                </div>
+                <div class="form-group">
+                    <label for="name">Email</label>
+                    <input type="email" name="email" id="email" placeholder="email" required class="bg-green-500">
+                </div>
+                <div class="form-group">
+                    <select name="type" class="bg-green-500">
+                        <option value="fte" class="bg-green-500">FTE</option>
+                        <option value="consultant" class="bg-green-500">Consultant</option>
+                    </select>
+                </div>
+            </fieldset>
+            <button type="submit" class="submit-btn" class="bg-green-500">send</button>
+        </form>
+
+       </section>
+</body>
+</html>

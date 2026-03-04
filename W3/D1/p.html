@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <div class="absolute left-140 top-11 ">
+         <img src="ipm.jpeg" alt="My photo" class="m-8 w-50 ">
+         <button id="runbtn" class="absolute left-25 h-11 border-b rounded-2xl w-19 top-80 bg-blue-400 shadow-2xl font-bold text-white ">click</button>
+    </div>
+    <pre id="out">
+    </pre>
+   <script>
+      const out = document.getElementById('out');
+        function print(...args){
+            console.log(...args);
+            out.textContent+=args.join(" ")+"\n";
+        }
+             function run(){
+           print("The person who clicks this button is........");
+        print(" Vishnu....");
+        document.body.style.background = "yellow";
+        }
+        document.getElementById("runbtn").addEventListener("click",run);
+        
+   </script>
+</body>
+</html>
