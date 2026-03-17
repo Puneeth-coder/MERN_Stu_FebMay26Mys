@@ -8,4 +8,4 @@ function showCompletionMessage(){
     console.log("The greeting task is complete.");
 }
 
-greetUser("Puneeth",showCompletionMessage);
+greetUser("Puneeth",showCompletionMessage); 
