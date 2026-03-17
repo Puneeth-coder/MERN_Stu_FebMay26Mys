@@ -8,4 +8,4 @@ setTimeout(() => {
 setTimeout(function() {
     console.log("Step 3: Delayed callback finished. F2");
 },3000);
-console.log("Step 2: Script did not stop while waiting.");
+console.log("Step 2: Script did not stop while waiting."); 
