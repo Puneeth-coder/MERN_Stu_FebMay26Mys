@@ -17,7 +17,7 @@ function loadPayments(next){
     setTimeout(function(){
         console.log("Step 3: Payments loaded.");
         next();
-    },400);
+    },400); 
 };
 
 function loadShipment(next){
