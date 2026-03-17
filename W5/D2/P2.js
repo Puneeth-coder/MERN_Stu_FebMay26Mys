@@ -18,7 +18,7 @@ function showSimpleDoneMessage(){
 
 function showDetailedMessage(message){
     console.log(message);
-}
+} 
 
 // runTask(showSimpleDoneMessage);
 runTaskWithResult("Send monthly report",showDetailedMessage);
