@@ -13,7 +13,7 @@ function showGrade(name,score){
     }
     else if (score >= 75){
           console.log("Grade: A");
-    }
+    } 
      else if (score >= 70){
           console.log("Grade: B");
     }
