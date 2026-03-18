@@ -1,0 +1,16 @@
+// await with non promise value
+
+function getReadyValue(){
+    return 25;
+}
+function getDelayedValue(){
+    return Promise.resolve(75);
+}
+async function showValues() {
+    const readyValue = await getReadyValue();
+    const delayedValue = await getDelayedValue();
+
+    console.log("Ready value:",readyValue);
+    console.log("Delayed value:",delayedValue);
+}
+showValues();
