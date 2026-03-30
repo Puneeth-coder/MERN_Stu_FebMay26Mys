@@ -3,9 +3,9 @@ function validateLogin(){
     return new Promise(function(resolve){
         setTimeout(function(){
             resolve("Login Validate");
-        },500)
-    })
-}
+        },500);
+    });
+};
 function fetchAccountData(){
     return new Promise(function(resolve,reject){
         setTimeout(function(){
@@ -16,9 +16,9 @@ function fetchAccountData(){
             else{
                 reject("Account Data not Found");
             }
-        },700)
-    })
-}
+        },700);
+    });
+};
 validateLogin()
 .then(function(message){
     console.log(message);
