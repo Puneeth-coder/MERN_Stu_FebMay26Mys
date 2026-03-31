@@ -26,3 +26,31 @@ app.use("/api",apiRouter);
 app.listen(4000,function(){
     console.log("Express server running at http://localhost:4000");
 });
+
+// NEW Routeer
+// products router (handles /api/products/...)
+
+const productsRouter = express.Router();
+
+// /api/products  -> create products
+productsRouter.post("/",(req,res) => {
+    res.json({
+        route: "/api/products",
+        message: "Create products"
+    });
+});
+
+// /api/products/:id  -> delete products
+productsRouter.delete("/:id",(req,res) => {
+    res.json({
+        route: `/api/products/${req.params.id}`,
+        message: "Delete products"
+    });
+});
+
+// mount products router under /api/products
+apiRouter.use("/products",productsRouter);
+
+app.listen(4000,function(){
+    console.log("Express server running at http://localhost:4000");
+});
