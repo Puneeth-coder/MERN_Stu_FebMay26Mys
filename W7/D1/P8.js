@@ -7,7 +7,7 @@ const app = express();
 
 app.get("/products/:id",function(res,req){
     res.json({
-        rat: req.rat.id,
+        rat: req.params.id,
         queryParameters: req.query
     });
 });
