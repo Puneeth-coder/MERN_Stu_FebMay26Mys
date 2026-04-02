@@ -10,6 +10,7 @@ document.getElementById("addbtn").addEventListener("click",function(){
 });
 
 document.getElementById("rmbtn").addEventListener("click",function(){
+    const errMessage = document.getElementById("errMessage");
      errMessage.e = "No items to be deleted";
     if(list.lastElementChild){
     list.removeChild(list.lastElementChild);
