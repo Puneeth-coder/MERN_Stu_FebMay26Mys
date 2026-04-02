@@ -1,4 +1,4 @@
-// 
+// Query selectors and query selectorsAll
 console.log("document object", document);
 console.log("page title",document.title);
 
@@ -35,7 +35,6 @@ run.addEventListener("click",function(){
 
 // Query selectorAll: returns all elements matching the selector
 const tasks = document.querySelectorAll(".task");
-// task.style.color = "purple";
 tasks.forEach(function(task){
     task.style.color = "purple";
 })
