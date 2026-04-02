@@ -18,4 +18,4 @@ function calculateTotal(prices){
 
 let cart = [100,92,200,250,500];
 console.log("Total:",calculateTotal(cart));
-console.log(document.body);0
+console.log(document.body);
