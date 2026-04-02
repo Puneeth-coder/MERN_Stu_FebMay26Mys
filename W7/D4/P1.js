@@ -1,0 +1,13 @@
+// Basics os cookies 
+const express = require("express");
+const app = express();
+
+app.get("/set-theme",function(req,res){
+    // res.cookie() tells the brower to store a cookie
+    res.cookie("theme","dark");
+
+    res.send("Cookie named 'theme' with value 'dark' was sent to the browser");
+});
+app.listen(4000,function(){
+    console.log("JWT protected route server running at http://localhost:4000");
+});
