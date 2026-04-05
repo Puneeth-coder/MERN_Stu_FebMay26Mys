@@ -26,4 +26,4 @@ document.getElementById("locateBtn").addEventListener("click",function(){
     },
     {enableHighAccuracy: true,timeout:10000,maximumAge:0}
     );
-})
+});
