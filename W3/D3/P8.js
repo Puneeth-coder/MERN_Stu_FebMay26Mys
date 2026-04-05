@@ -7,7 +7,6 @@ const employee = {
 };
 const jsonstring = JSON.stringify(employee);
 console.log(jsonstring);
-console.log(employee);
 
 // JSON parsing
 const parsedObject = JSON.parse(jsonstring);
