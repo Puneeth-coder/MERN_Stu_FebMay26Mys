@@ -15,7 +15,7 @@ function fetchPost(url){
         statusOutput.textContent = "Success: "+JSON.stringify(data,null,2);
     })
     .catch(function(error){
-        statusOutput.textContent = "Error: "+error.message; 
+        statusOutput.textContent = "Error: "+error.message;       // fullfils the response
     });
 };
 
