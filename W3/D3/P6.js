@@ -1,7 +1,7 @@
 // Nested Objects and Methods 
 const student = {
     firstName: "Shiva",
-    lastName:"Sujay",
+    lastName:"M",
     Scores:{
         science: 86,
         Maths: 80
@@ -11,7 +11,7 @@ const student = {
         return this.firstName + " " + this.lastName
     },
     greet(){
-        console.log("Hi, ",this.fullname());
+        console.log("Hi",this.fullname());
     },
 };
-console.log(student);
+student.greet();
