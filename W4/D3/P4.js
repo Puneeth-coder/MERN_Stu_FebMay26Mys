@@ -11,7 +11,7 @@ document.getElementById("saveBtn").addEventListener("click",function(){
     jsonOutput.textContent = "user object saved as string to localStorage";
 });
 
-document.getElementById("redBtn").addEventListener("click",function(){
+document.getElementById("readBtn").addEventListener("click",function(){
     try{
       const up = localStorage.getItem("userProfile");
       console.log(JSON.parse(up));
