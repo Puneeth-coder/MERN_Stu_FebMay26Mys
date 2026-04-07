@@ -1,10 +1,11 @@
 {
   "name": "movie-ticket-booking-cli",
-  "version": "1.0.0",
-  "description": "CLI baised movie ticket booking and management system using node.JS",
+  "version": "2.0.0",
+  "description": "CLI baised movie ticket booking and management system using node.JS and also with fs, buffer, and HTTP server",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "server": "node-server.js"
   },
   "keywords": [],
   "author": "Puneeth&team",
