@@ -17,7 +17,7 @@ addBtn.addEventListener("click",function(event){
     }
     if(!validEmail.includes('@') || !validEmail.includes('.')){
         message.textContent = "Please enter valid email";
-        message.style.color = "red";
+        message.style.color = "pink";
         email.focus();
         return;
     }

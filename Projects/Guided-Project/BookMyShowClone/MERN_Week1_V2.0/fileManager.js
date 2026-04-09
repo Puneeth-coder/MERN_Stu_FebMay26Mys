@@ -1,12 +1,12 @@
-// Writing and reading bookings and its logs
-const fs=require("fs");
-const path=require("path");
+// writing & reading bookings and its logs
+const fs = require("fs");
+const path = require("path")
 
-const dataDir=path.join(__dirname,"data");
-const logsDir=path.join(dataDir,"logs");
-const bookingsFile=path.join(dataDir,"bookings.json");
-const logFile =path.join(logsDir,"booking.log");
-const archivedLogFile=path.join(logsDir,"booking-archived.log");
+const dataDir = path.join(__dirname,"data");
+const logsDir = path.join(dataDir,"logs");
+const bookingsFile = path.join(dataDir,"bookings.json");
+const logFile = path.join(logsDir,"booking.log");
+const archivedLogFile = path.join(logsDir,"booking-archived.log");
 
 function ensureDirectories(){
     if(!fs.existsSync(dataDir)){
@@ -24,16 +24,16 @@ function listDataFilesSync(){
 }
 
 function removeLogsDirectorySync(){
-    if(fs.existsSync(logsDir)){
+    if (fs.existsSync(logsDir)) {
         fs.rmdirSync(logsDir,{recursive:true});
     }
 }
 
-//Read/Write bookings
+//Read/write bookings
 function initializeBookingsFileSync(){
     ensureDirectories();
 
-    if(!fs.existsSync(bookingsFile)){
+    if (!fs.existsSync(bookingsFile)) {
         fs.writeFileSync(bookingsFile,JSON.stringify([],null,2),"utf-8");
     }
 }
@@ -41,28 +41,28 @@ function initializeBookingsFileSync(){
 function readBookingsSync(){
     initializeBookingsFileSync();
 
-    //Read synchronous using buffer first,then convert to string
-    const bufferData=fs.readFileSync(bookingsFile);
-    const content=bufferData.toString("utf-8");
-    
+    //Read synchronously using buffer first, then convert to string
+    const bufferData = fs.readFileSync(bookingsFile);
+    const content = bufferData.toString("utf-8");
+
     return JSON.parse(content || "[]");
 }
 
 function readBookingsAsync(){
     initializeBookingsFileSync();
 
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve,reject)=>{
         fs.readFile(bookingsFile,(err,bufferData)=>{
             if(err){
                 return reject(err);
             }
             try{
-                const content=bufferData.toString("utf-8");
-                const parsed=JSON.parse(content || "[]");
-                resolve(parsed)
+              const content = bufferData.toString("utf-8");
+              const parsed = JSON.parse(content || "[]");
+              resolve(parsed);
             }
             catch(parseError){
-                     reject(parseError);
+                reject(parseError);
             }
         });
     });
@@ -71,22 +71,22 @@ function readBookingsAsync(){
 function writeBookingsAsync(bookings){
     initializeBookingsFileSync();
 
-    return new Promise((resolve,rejects)=>{
-        const jsonString=JSON.stringify(bookings,null,2);
-        const buffer=Buffer.alloc(Buffer.byteLength(jsonString));
+    return new Promise((resolve,reject)=>{
+        const jsonString = JSON.stringify(bookings,null,2);
+        const buffer = Buffer.alloc(Buffer.byteLength(jsonString));
         buffer.write(jsonString);
 
         fs.writeFile(bookingsFile,buffer,(err)=>{
-            if(err){
+            if (err) {
                 return reject(err);
             }
-            resolve("Booking file written successfully")
+            resolve("Bookings file written successfully");
         });
     });
 }
 
-async function appendBookingAsync(booking) {
-    const bookings=await readBookingsAsync();
+async function appendBookingAsync(booking){
+    const bookings = await readBookingsAsync();
     bookings.push(booking);
     await writeBookingsAsync(bookings);
     return booking;
@@ -95,14 +95,14 @@ async function appendBookingAsync(booking) {
 function appendLogAsync(message){
     ensureDirectories();
     return new Promise((resolve,reject)=>{
-        const timeStamp=new Date().toISOString();
-        const finalMessage=`[${timeStamp}]${message}\n`;
+        const timeStamp = new Date().toISOString();
+        const finalMessage = `[${timeStamp}]${message}\n`;
 
         fs.appendFile(logFile,finalMessage,"utf-8",(err)=>{
-            if(err){
+            if (err) {
                 return reject(err);
             }
-            resolve("Log append successfully");
+            resolve("Log appended successfully.")
         });
     });
 }
@@ -110,7 +110,7 @@ function appendLogAsync(message){
 function renameLogFileSync(){
     ensureDirectories();
 
-    if(fs.existsSync(logFile)){
+    if (fs.existsSync(logFile)) {
         fs.renameSync(logFile,archivedLogFile);
         return true;
     }
@@ -118,15 +118,15 @@ function renameLogFileSync(){
 }
 
 function deleteArchivedLogSync(){
-//unlink is used to delete the file
-    if(fs.existsSync(archivedLogFile)){
+    
+    if (fs.existsSync(archivedLogFile)) {
         fs.unlinkSync(archivedLogFile);
         return true;
     }
     return false;
 }
 
-module.exports={
+module.exports = {
     dataDir,
     logsDir,
     bookingsFile,
@@ -139,10 +139,8 @@ module.exports={
     readBookingsAsync,
     readBookingsSync,
     writeBookingsAsync,
-    writeFileSync,
     appendBookingAsync,
     renameLogFileSync,
     deleteArchivedLogSync,
     appendLogAsync
-
-}
+};

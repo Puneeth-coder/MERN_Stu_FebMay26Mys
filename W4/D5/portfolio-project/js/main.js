@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded",function(){
     initContactValidation();
     initThemeToggle();
     renderProject();
+    scrollProgressInit();
     scrollInit();
     welcomeInit();
     letsPopInit();
