@@ -1,4 +1,4 @@
-// Connecting to mongoDB to nodeJS
+// Connecting to mongoDB to nodeJS using Mongoose and defining schema & modals
 const mongoose = require("mongoose");
 
 async function main(){
