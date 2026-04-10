@@ -50,7 +50,7 @@ async function runCurdDemo() {
         console.log("Updated with findByIdAndUpdate()",updatedStudent);
 
         // Delete using function findByIdAndUpdate()
-        const deletedStudent = student.findByIdAndDelete(firstStudent._id);
+        const deletedStudent = await  student.findByIdAndDelete(secondStudent._id);
         console.log("Deleted with findByIdDelete()",deletedStudent);
 
         await mongoose.connection.close();
