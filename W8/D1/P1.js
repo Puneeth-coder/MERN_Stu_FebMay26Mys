@@ -1,4 +1,4 @@
-
+// Connecting to mongoDB to nodeJS
 const mongoose = require("mongoose");
 
 async function main(){
@@ -23,5 +23,5 @@ async function main(){
     catch(error){
         console.log("Failed to connect to DB",error.message);
     }
-}
+};
 main();
