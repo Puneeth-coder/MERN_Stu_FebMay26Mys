@@ -1,6 +1,5 @@
 // Indexing for performance improvement
 const mongoose = require("mongoose");
-const { type } = require("node:os");
 
 const employeeSchema = new mongoose.Schema({
     email:{type:String, index:true},
