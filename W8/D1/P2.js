@@ -20,10 +20,10 @@ async function runCurdDemo() {
         const firstStudent = new student({
             name: "Puneeth",
             age: 22,
-            role: "demo-student"
+            role: "admin"
         });
         await firstStudent.save();
-        // console.log("Created new student with save()",firstStudent);
+         console.log("Created new student with save()",firstStudent);
 
          //    Create using the function create()
         const secondStudent = await student.create({
@@ -31,11 +31,11 @@ async function runCurdDemo() {
             age: 21,
             role: "demo-student"
         });
-        // console.log("Created new student with create()",secondStudent);
+        console.log("Created new student with create()",secondStudent);
 
         // Read using the function of find()
-        const allDemoStudents = await student.find({role:"demo-student"});
-        // console.log("Read with find()",allDemoStudents);
+        const allDemoStudents = await student.find();
+         console.log("Read with find()",allDemoStudents);
 
         // Read using findOne()
         const oneDemoStudent = await student.findOne({name:"Harsha"});
