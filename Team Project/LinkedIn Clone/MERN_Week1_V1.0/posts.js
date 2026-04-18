@@ -1,29 +1,57 @@
+// Handles post creation, likes, and comments
 const { getCurrentUser } = require("./user");
-const emitter = require("./events");
 
 let posts = [];
 
-function createPost(content) {
-    return new Promise((resolve, reject) => {
-        const user = getCurrentUser();
-        if (!user) return reject("Login first");
+async function createPost(content) {
+    const user = getCurrentUser();
 
-        const post = {
-            id: Date.now().toString(),
-            author: user.id,
-            content,
-            likes: [],
-            comments: []
-        };
+    if (!user) throw "No active user";
 
-        posts.push(post);
-        emitter.emit("postCreated");
-        resolve(post);
+    const post = {
+        id: Date.now().toString(),
+        authorId: user.id,
+        content,
+        likes: [],
+        comments: [],
+        time: new Date()
+    };
+
+    posts.push(post);
+    return post;
+}
+
+function commentOnPost(postId, text) {
+    const user = getCurrentUser();
+    const post = posts.find(p => p.id === postId);
+
+    if (!post) throw "Post not found";
+
+    post.comments.push({
+        userId: user.id,
+        text
     });
 }
 
-function getPosts() {
+function likePost(postId) {
+    const user = getCurrentUser();
+    const post = posts.find(p => p.id === postId);
+
+    if (!post) throw "Post not found";
+
+    if (!post.likes.includes(user.id)) {
+        post.likes.push(user.id);
+    }
+}
+
+function getAllPosts() {
     return posts;
 }
 
-module.exports = { createPost, getPosts };
+module.exports = {
+    createPost,
+    likePost,
+    getAllPosts,
+    commentOnPost
+
+};
