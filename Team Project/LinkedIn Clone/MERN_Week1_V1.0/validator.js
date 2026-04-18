@@ -1,11 +1,9 @@
-function validateInput(input, callback, attempts = 1) {
-    if (!input || input.trim() === "") {
-        if (attempts >= 3) {
-            return callback("Max attempts reached", null);
-        }
-        return callback(null, "retry");
+// validates login attempts
+function validateInput(attempts) {
+    if (attempts >= 2) {
+        return { error: "Max attempts reached" };
     }
-    callback(null, input);
+    return { attempts: attempts + 1 };
 }
 
 module.exports = validateInput;
