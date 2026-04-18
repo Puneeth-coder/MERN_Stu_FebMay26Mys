@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "chalk": "^4.1.2"
+  },
+  "name": "mern_week1_v1.0",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
