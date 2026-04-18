@@ -1,38 +1,30 @@
+// can see posts from connected users
 const { getCurrentUser, getAllUsers } = require("./user");
-const { getPosts } = require("./posts");
+const { getAllPosts } = require("./posts");
 
 function viewFeed() {
-    const user = getCurrentUser();
-
-    if (!user) {
-        console.log("Please login first");
-        return;
-    }
-
-    const posts = getPosts();
+    const currentUser = getCurrentUser();
     const users = getAllUsers();
+    const posts = getAllPosts();
 
-    const feed = posts.filter(post =>
-        user.connections.includes(post.author) ||
-        post.author === user.id
-    );
-
-    if (feed.length === 0) {
-        console.log("No posts to show");
-        return;
+    if (!currentUser) {
+        throw "Login requid";
     }
 
-    feed.forEach(post => {
-        const author = users.find(u => u.id === post.author);
+    // Get posts only from connections
+    const feed = posts.filter(p =>
+    currentUser.connections.includes(p.authorId) || p.authorId === currentUser.id);
 
-        if (!author) {
-            console.log(`Unknown user: ${post.content}`);
-            return;
-        }
+    return feed.map(p => {
+        const author = users.find(u => u.id === p.authorId);
 
-        console.log(`${author.name}`);
-        console.log(`${author.headline}`);
-        console.log(`${post.content}`);
+        return {
+            postId: p.id,
+            author: author ? author.name : "Unknown",
+            content: p.content,
+            likes: p.likes.length,
+            comments: p.comments.length
+        };
     });
 }
 
