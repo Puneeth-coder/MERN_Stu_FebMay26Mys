@@ -1,4 +1,8 @@
+// Custom EventEmitter for system events
 const EventEmitter = require("events");
-const emitter = new EventEmitter();
+
+class AppEmitter extends EventEmitter {}
+
+const emitter = new AppEmitter();
 
 module.exports = emitter;
