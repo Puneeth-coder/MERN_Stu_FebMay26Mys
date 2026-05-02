@@ -67,7 +67,7 @@ exports.updateShow = async (req,res,next) => {
 // Delete shows
 exports.deleteShow = async (req,res,next) => {
     try{
-        await showService.deleteShow(req.params.id);
+       const show = await showService.deleteShow(req.params.id);
 
         res.status(200).json({
             success:true,
