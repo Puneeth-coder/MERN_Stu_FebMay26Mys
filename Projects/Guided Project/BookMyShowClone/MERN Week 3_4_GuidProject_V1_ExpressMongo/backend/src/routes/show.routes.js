@@ -6,7 +6,7 @@ const {authorize} = require("../middleware/role.middleware");
 
 // Public route
 router.get("/",showController.getShows);
-router.get("/",showController.getShowById);
+router.get("/:id",showController.getShowById);
 
 // Admin only route
 router.post("/",protect,authorize("admin"),showController.createShow);
