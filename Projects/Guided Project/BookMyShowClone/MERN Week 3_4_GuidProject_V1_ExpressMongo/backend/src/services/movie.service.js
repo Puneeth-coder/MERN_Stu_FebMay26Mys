@@ -1,27 +1,27 @@
 const Movie = require("../models/Movie");
 
-// Create Movies
+// Create Movie
 exports.createMovie = async (data) => {
     return await Movie.create(data);
 };
 
 // Get movies
 exports.getMovies = async (query) => {
-    let { page = 1, limit = 5, genre, rating, search, sort} = query;
+    let { page = 1, limit = 5, genre, rating, search, sort } = query;
 
     page = Number(page);
     limit = Number(limit);
 
-    const filter = { isActive: true};
+    const filter = { isActive: true };
 
     if(genre){
         filter.genre = genre;
     }
     if(rating){
-        filter.rating = { $gte: Number(rating)};
+        filter.rating = { $gte: Number(rating) };
     }
     if(search){
-        filter.$text = { $search: search};
+        filter.$text = { $search: search };
     }
     let mongoQuery = Movie.find(filter);
 
@@ -32,7 +32,6 @@ exports.getMovies = async (query) => {
         mongoQuery = mongoQuery.sort("-createdAt");
     }
     const skip = (page - 1)*limit;
-
     mongoQuery = mongoQuery.skip(skip).limit(limit);
 
     const movies = await mongoQuery;
@@ -49,7 +48,7 @@ exports.getMovies = async (query) => {
 };
 
 // Update movie
-exports.updateMovie = async(id,data)=>{
+exports.updateMovie = async (id,data) => {
     const movie = await Movie.findByIdAndUpdate(id,data,{
         new:true,
         runValidators:true
@@ -58,15 +57,16 @@ exports.updateMovie = async(id,data)=>{
     if(!movie)
         throw new Error("Movie not found");
 
-        return movie;
+    return movie;
 };
 
-// Delete movie 
+// Delete movie
 exports.deleteMovie = async (id) => {
-    // Soft Delete
+    // Soft delete
     const movie = await Movie.findByIdAndUpdate(id,{
         isActive:false,
     });
+
     if(!movie)
         throw new Error("Movie not found");
 };
