@@ -1,6 +1,6 @@
 const authService = require("../services/auth.service");
 
-//Register
+// Register
 exports.register = async(req,res,next)=>{
     try{
         const result = await authService.registerUser(req.body);
@@ -8,7 +8,7 @@ exports.register = async(req,res,next)=>{
         res.status(201).json({
             success:true,
             message:"User registed. OTP sent.",
-            data:result,
+            data:result
         });
     }
     catch(error){
@@ -16,8 +16,8 @@ exports.register = async(req,res,next)=>{
     }
 };
 
-//Veriy otp
-exports.verifyOTP = async(req,res,next)=>{
+// Verify otp
+exports.verifyOTP = async(req,res,next) =>{
     try{
         await authService.verifyOTP(req.body);
 
@@ -31,15 +31,15 @@ exports.verifyOTP = async(req,res,next)=>{
     }
 };
 
-//Login
-exports.login = async(req,res,next) => {
+// Login
+exports.login = async(req,res,next) =>{
     try{
         const result = await authService.loginUser(req.body);
 
         res.status(200).json({
             success:true,
-            message:"Login Successful",
-            data:result,
+            message:"Login successful",
+            data:result
         });
     }
     catch(error){
