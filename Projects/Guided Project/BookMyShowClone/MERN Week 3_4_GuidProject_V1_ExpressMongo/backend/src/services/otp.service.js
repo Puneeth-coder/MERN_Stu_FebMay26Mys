@@ -3,9 +3,9 @@ const bcrypt = require("bcrypt");
 
 // Generate OTP
 exports.generateOTP = async(email) => {
-    const otp = Math.floor(100000+Math.random()*900000).toString;
+    const otp = Math.floor(100000+Math.random()*900000).toString();
 
-    const hashedOTP = await bcrypt.hash(otp,10);
+    const hashedOTP= await bcrypt.hash(otp,10);
 
     const expiresAt = new Date(Date.now() + 5*60*1000);
 
@@ -15,6 +15,6 @@ exports.generateOTP = async(email) => {
         expiresAt,
     });
 
-    console.log("Generated OTP:",otp);  // testing only
+    console.log("Generated OTP:",otp); //testing only
     return otp;
 };
