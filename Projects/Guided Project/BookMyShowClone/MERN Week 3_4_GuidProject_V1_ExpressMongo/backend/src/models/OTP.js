@@ -2,15 +2,15 @@ const mongoose = require("mongoose");
 
 const otpSchema = new mongoose.Schema({
     email:{
-        type:String,
-        required:true,
-        lowercase:true,
-        index:true
+       type:String,
+       required:true,
+       lowercase:true,
+       index:true 
     },
     otp:{
         type:String,
         required:true,
-        select:false                        // Select is for hide the otp or password
+        select:false
     },
     expiresAt:{
         type:Date,
@@ -18,14 +18,15 @@ const otpSchema = new mongoose.Schema({
     },
     attempts:{
         type:Number,
-        default:0,
+        default:0
     },
-},{
-    timestamps:true,
+},
+{
+    timestamps:true
 });
 
 // TTL index
-otpSchema.index({expiresAt:1},{expiresAfterSeconds:0});
+otpSchema.index({expiresAt:1},{expireAfterSeconds:0});
 
-// Exports
+// Export
 module.exports = mongoose.model("OTP",otpSchema);
