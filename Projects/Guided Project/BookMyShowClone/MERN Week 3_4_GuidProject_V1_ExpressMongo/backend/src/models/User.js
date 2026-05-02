@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const bcrypt = require("bcrypt");     // bcrypt is used for encrypt passwaord, otp etc
+const bcrypt = require("bcrypt");
 
 const userSchema = new mongoose.Schema({
     name:{
@@ -7,35 +7,36 @@ const userSchema = new mongoose.Schema({
         required:[true,"Name is required"],
         trim:true
     },
-     email:{
+    email:{
         type:String,
         required:[true,"Email is required"],
         unique:true,
         lowercase:true,
-        match:[/^\s+@\s+\.\s+$/,"Please use a vaild email"],
+        match:[/^\S+@\S+\.\S+$/,"Please use valid email"],
         index:true
     },
-     password:{
+    password:{
         type:String,
         required:[true,"Password is required"],
         minlength:6,
-        select:false                 // by default it does not show's the password
+        select:false, //to hide the password
     },
     role:{
         type:String,
         enum:["user","admin"],
-        default:"user"
+        default:"user",
     },
     isVerified:{
         type:Boolean,
-        default:false
+        default:false,
     },
-},{
+},
+{
     timestamps:true
-  }
+}
 );
 // Hash password before save
-userSchema.pre("save",async function () {
+userSchema.pre("save",async function(){
     if(!this.isModified("password")){
         return;
     }
@@ -48,8 +49,8 @@ userSchema.pre("save",async function () {
     }
 });
 
-// Compare of password function
-userSchema.methods.comparePassword = async function (enteredPassword) {
+// Compare password function
+userSchema.methods.comparePassword = async function(enteredPassword){
     return await bcrypt.compare(enteredPassword,this.password);
 };
 
