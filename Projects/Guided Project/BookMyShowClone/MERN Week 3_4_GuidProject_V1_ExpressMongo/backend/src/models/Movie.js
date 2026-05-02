@@ -11,13 +11,7 @@ const movieSchema = new mongoose.Schema({
         type:String,
         required:[true,"Genre is required"],
         enum:[
-            "Action",
-            "Comedy",
-            "Horror",
-            "Sci-Fi",
-            "Drama",
-            "Romantic",
-            "Thriller"
+            "Action","Comedy","Drama","Horrer","Sci-Fi","Romance","Thriller"
         ],
         index:true
     },
@@ -30,11 +24,11 @@ const movieSchema = new mongoose.Schema({
     },
     duration:{
         type:Number,
-        required:[true,"Duration is required"]
+        required:[true,"Duration is required"],
     },
     releaseDate:{
         type:Date,
-        required:[true,"Release Date is required"],
+        required:[true,"Release date is required"],
         index:true
     },
     poster:{
@@ -47,21 +41,22 @@ const movieSchema = new mongoose.Schema({
     },
     isActive:{
         type:Boolean,
-        default:true,
-    },
-},{
-    timestamps:true
+        default:true
+    }
+},
+{
+    timestamps:true,
 });
 
 // Compound index
 movieSchema.index({genre:1,rating:-1});
 
-// Text index 
-movieSchema:index({title:"text"});
+// Text index
+movieSchema.index({title:"text"});
 
-// Virtual field 
+// Virtual field
 movieSchema.virtual("isReleased").get(function(){
     return this.releaseDate<=new Date();
 });
 
-module.exports = mongoose.model("Movies",movieSchema);
+module.exports = mongoose.model("Movie",movieSchema);
