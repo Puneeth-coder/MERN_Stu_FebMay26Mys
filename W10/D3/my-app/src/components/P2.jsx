@@ -10,16 +10,16 @@ import { useState } from "react";
 
 // event.target.value: the current text typed by the user
 export function EventObject() {
-    const [text,setText] = useState('');
+    const [text, setText] = useState('');
     const handleChange = (event) => {
         const currentValue = event.target.value;
         console.log(currentValue);
         setText(currentValue);
     };
-    return(
+    return (
         <section>
             <h2>Event object</h2>
-            <input type="text" value={text} onChange={handleChange} placeholder="Type something"/>
+            <input type="text" value={text} onChange={handleChange} placeholder="Type something" />
             <p>You typed: {text}</p>
         </section>
     );
