@@ -1,4 +1,7 @@
 // Stop event Propagation
+// event.stopPropagation():
+    // - stops the event from bubbling to the parent elements
+    // - useful when child and parent both have event handlers
 export function EventObj() {
     const hadleParentClick = (event)  => {
         alert(`Parent clicked target: ${event.target.tagName} currentTarget: ${event.currentTarget.tagName}`);
