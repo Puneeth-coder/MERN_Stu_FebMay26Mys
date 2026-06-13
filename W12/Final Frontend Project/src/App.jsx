@@ -1,18 +1,27 @@
-import './App.css'
-import CitySelector from './components/CitySelector';
-import MovieSearch from './components/MovieSearch';
-// import MovieCard from "./components/MovieCard";
-function App() {
-    return (
-    // Component Composition :
-    //  multiple files are puted in to one page called Component Composition
-    <>
-    <CitySelector/>
-    {/* Controlled Components */}
-    <MovieSearch/>
-    </>
-      
-    );
-}
+import "./App.css";
 
-export default App
+import MovieExplorer from "./components/MovieExplorer";
+import ErrorBoundary from "./components/ErrorBoundary";
+
+export default function App(){
+  return(
+    <div>
+      <header>
+          <ErrorBoundary>
+              <MovieExplorer />
+          </ErrorBoundary>
+      </header>
+    </div>
+  )
+}
+const styles = {
+  container:{
+    maxWidth: "900px",
+    margin:"0 auto",
+    padding: "20px",
+  },
+  button: {
+    padding: "8px 12px",
+    marginTop:"8px",
+  },
+};
