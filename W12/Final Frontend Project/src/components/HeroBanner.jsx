@@ -1,7 +1,7 @@
-export default function HeroBanner(){
+export default function HeroBanner() {
     return(
         <section className="hero">
-            <h4>Welcom to BookMyShow Application</h4>
+            <h4>Welcome to BookMyShow Application</h4>
             <p>India's most loved movie ticket booking App</p>
         </section>
     );
