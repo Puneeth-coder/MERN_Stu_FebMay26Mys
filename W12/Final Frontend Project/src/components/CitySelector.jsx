@@ -5,12 +5,14 @@ export default function CitySelector() {
         <section>
             <h2>Selected City</h2>
             <p>{city}</p>
-            <button onClick={()=>{
-                setCity("Tumakuru")
-            }}>Tumakuru</button>
-            <button onClick={()=>{
-                setCity("Mandya")
-            }}>Mandya</button>
+            <button
+                onClick={()=>{
+                    setCity("Mandya");
+                }}>Mandya</button>
+            <button
+                onClick={()=>{
+                    setCity("Bengaluru");
+                }}>Bengaluru</button>
         </section>
     )
 }
