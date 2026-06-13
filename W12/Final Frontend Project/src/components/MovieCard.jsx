@@ -8,9 +8,10 @@ export default function MovieCard(props){
 
     return(
         <div className="movie-card">
-            {/* Destructuring props */}
+            {/* Destructuring  props*/}
             <img src={props.poster} alt={props.title} />
             <h3>{props.title}</h3>
+            <p>{[]}</p>
             <p>Genre: {props.genre}</p>
             <p>Rating: {props.rating}</p>
             <p>Duration: {props.duration}</p>
